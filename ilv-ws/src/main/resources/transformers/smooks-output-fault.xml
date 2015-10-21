@@ -1,0 +1,16 @@
+<smooks-resource-list xmlns="http://www.milyn.org/xsd/smooks-1.1.xsd"
+                      xmlns:core="http://www.milyn.org/xsd/smooks/smooks-core-1.4.xsd"
+                      xmlns:jb="http://www.milyn.org/xsd/smooks/javabean-1.4.xsd">
+
+    <core:namespaces>
+        <core:namespace prefix="outputFaultNS" uri="urn:cl.banchile.fsw:ilv-ws:0.0.1-SNAPSHOT"/>
+    </core:namespaces>
+   <core:exports>
+      <core:result type="org.milyn.payload.JavaResult" extract="outputFault"/>
+   </core:exports>
+   
+    <jb:bean beanId="outputFault" class="cl.banchile.fsw.ilv.ws.exception.UsuarioException" createOnElement="/outputFaultNS:UsuarioException">
+        <jb:value property="message" data="/outputFaultNS:UsuarioException/message" />
+    </jb:bean>
+
+</smooks-resource-list>
