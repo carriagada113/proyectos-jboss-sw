@@ -74,3 +74,4 @@ local.properties
 /build/
 /bin/
 target/
+.xml/
