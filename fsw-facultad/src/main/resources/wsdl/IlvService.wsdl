@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="IlvService" targetNamespace="urn:cl.banchile.ilv:fsw-facultad:1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="urn:cl.banchile.ilv:fsw-facultad:1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="urn:cl.banchile.fsw:ilv-ws:1.0" xmlns:tns="urn:cl.banchile.ilv:fsw-facultad:1.0" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="urn:cl.banchile.ilv:fsw-facultad:1.0">
+  <xs:import namespace="urn:cl.banchile.fsw:ilv-ws:1.0"/>
+  <xs:complexType name="banchileFacultyOutSrv">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="responseBody" type="tns:banchileFacultyOutSrvBody"/>
+      <xs:element minOccurs="0" ref="ns1:responseHeader"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="banchileFacultyOutSrvBody">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="listaFacultadBch" type="tns:banchileFacultyTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="banchileFacultyTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="descripcion" type="xs:string"/>
+      <xs:element minOccurs="0" name="hija" type="xs:string"/>
+      <xs:element minOccurs="0" name="idTipoInforme" type="xs:string"/>
+      <xs:element name="identificador" type="xs:int"/>
+      <xs:element minOccurs="0" name="indicaActivo" type="xs:string"/>
+      <xs:element minOccurs="0" name="nombre" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseHeader">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="company" type="xs:string"/>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCodeService" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseDescService" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ruleRepresentativeFacultyOutSrv">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="responseBody" type="tns:ruleRepresentativeFacultyOutSrvBody"/>
+      <xs:element minOccurs="0" ref="ns1:responseHeader"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ruleRepresentativeFacultyOutSrvBody">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="listaReglasRepresFacultad" nillable="true" type="tns:ruleRepresentativeFacultyTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ruleRepresentativeFacultyTO">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="bancoFacultyOutSrv">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="responseBody" type="tns:bancoFacultyOutSrvBody"/>
+      <xs:element minOccurs="0" ref="ns1:responseHeader"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bancoFacultyOutSrvBody">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="listaFacultadBco" type="tns:bancoFacultyTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bancoFacultyTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idBanco" type="xs:string"/>
+      <xs:element name="identificador" type="xs:int"/>
+      <xs:element minOccurs="0" name="indicaActivo" type="xs:string"/>
+      <xs:element minOccurs="0" name="nombre" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="representativeFacultyOutSrv">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="responseBody" type="tns:apoderadoFacultadOutSrvBody"/>
+      <xs:element minOccurs="0" ref="ns1:responseHeader"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="apoderadoFacultadOutSrvBody">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="listaFacultadApoderado" nillable="true" type="tns:apoderadoFacultadTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="apoderadoFacultadTO">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:element name="IlvException" type="tns:IlvException"/>
+  <xs:complexType name="IlvException">
+    <xs:sequence>
+      <xs:element name="message" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="banchileFacultyOutSrv" nillable="true" type="tns:banchileFacultyOutSrv"/>
+  <xs:element name="string" nillable="true" type="xs:string"/>
+  <xs:element name="ruleRepresentativeFacultyOutSrv" nillable="true" type="tns:ruleRepresentativeFacultyOutSrv"/>
+  <xs:element name="bancoFacultyOutSrv" nillable="true" type="tns:bancoFacultyOutSrv"/>
+  <xs:element name="representativeFacultyOutSrv" nillable="true" type="tns:representativeFacultyOutSrv"/>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="urn:cl.banchile.ilv:fsw-facultad:1.0" targetNamespace="urn:cl.banchile.fsw:ilv-ws:1.0" version="1.0">
+<xs:import namespace="urn:cl.banchile.ilv:fsw-facultad:1.0"/>
+<xs:element name="facultadBanchileOutSrv" type="ns1:banchileFacultyOutSrv"/>
+<xs:element name="facultadBanchileOutSrvBody" type="ns1:banchileFacultyOutSrvBody"/>
+<xs:element name="facultadBancoOutSrv" type="ns1:bancoFacultyOutSrv"/>
+<xs:element name="facultadBancoOutSrvBody" type="ns1:bancoFacultyOutSrvBody"/>
+<xs:element name="responseHeader" type="ns1:responseHeader"/>
+
+
+
+
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getRepresentativeFaculty">
+    <wsdl:part name="arg0" element="tns:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="IlvException">
+    <wsdl:part name="IlvException" element="tns:IlvException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRepresentativeFacultyResponse">
+    <wsdl:part name="return" element="tns:representativeFacultyOutSrv">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFacultiesBanco">
+  </wsdl:message>
+  <wsdl:message name="getFacultiesBanchile">
+  </wsdl:message>
+  <wsdl:message name="getRuleRepresentativeFaculty">
+    <wsdl:part name="arg0" element="tns:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFacultiesBanchileResponse">
+    <wsdl:part name="return" element="tns:banchileFacultyOutSrv">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFacultiesBancoResponse">
+    <wsdl:part name="return" element="tns:bancoFacultyOutSrv">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validateFacultyRepresentative">
+    <wsdl:part name="arg0" element="tns:string">
+    </wsdl:part>
+    <wsdl:part name="arg1" element="tns:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRuleRepresentativeFacultyResponse">
+    <wsdl:part name="return" element="tns:ruleRepresentativeFacultyOutSrv">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validateFacultyRepresentativeResponse">
+    <wsdl:part name="return" element="tns:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IlvServicePortType">
+    <wsdl:operation name="getFacultiesBanchile">
+      <wsdl:input name="getFacultiesBanchile" message="tns:getFacultiesBanchile">
+    </wsdl:input>
+      <wsdl:output name="getFacultiesBanchileResponse" message="tns:getFacultiesBanchileResponse">
+    </wsdl:output>
+      <wsdl:fault name="IlvException" message="tns:IlvException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRuleRepresentativeFaculty">
+      <wsdl:input name="getRuleRepresentativeFaculty" message="tns:getRuleRepresentativeFaculty">
+    </wsdl:input>
+      <wsdl:output name="getRuleRepresentativeFacultyResponse" message="tns:getRuleRepresentativeFacultyResponse">
+    </wsdl:output>
+      <wsdl:fault name="IlvException" message="tns:IlvException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="validateFacultyRepresentative">
+      <wsdl:input name="validateFacultyRepresentative" message="tns:validateFacultyRepresentative">
+    </wsdl:input>
+      <wsdl:output name="validateFacultyRepresentativeResponse" message="tns:validateFacultyRepresentativeResponse">
+    </wsdl:output>
+      <wsdl:fault name="IlvException" message="tns:IlvException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFacultiesBanco">
+      <wsdl:input name="getFacultiesBanco" message="tns:getFacultiesBanco">
+    </wsdl:input>
+      <wsdl:output name="getFacultiesBancoResponse" message="tns:getFacultiesBancoResponse">
+    </wsdl:output>
+      <wsdl:fault name="IlvException" message="tns:IlvException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRepresentativeFaculty">
+      <wsdl:input name="getRepresentativeFaculty" message="tns:getRepresentativeFaculty">
+    </wsdl:input>
+      <wsdl:output name="getRepresentativeFacultyResponse" message="tns:getRepresentativeFacultyResponse">
+    </wsdl:output>
+      <wsdl:fault name="IlvException" message="tns:IlvException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IlvServiceSoapBinding" type="tns:IlvServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getFacultiesBanchile">
+      <soap:operation soapAction="getFacultiesBanchile" style="document"/>
+      <wsdl:input name="getFacultiesBanchile">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getFacultiesBanchileResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="IlvException">
+        <soap:fault name="IlvException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRuleRepresentativeFaculty">
+      <soap:operation soapAction="getRuleRepresentativeFaculty" style="document"/>
+      <wsdl:input name="getRuleRepresentativeFaculty">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRuleRepresentativeFacultyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="IlvException">
+        <soap:fault name="IlvException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="validateFacultyRepresentative">
+      <soap:operation soapAction="validateFacultyRepresentative" style="document"/>
+      <wsdl:input name="validateFacultyRepresentative">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="validateFacultyRepresentativeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="IlvException">
+        <soap:fault name="IlvException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFacultiesBanco">
+      <soap:operation soapAction="getFacultiesBanco" style="document"/>
+      <wsdl:input name="getFacultiesBanco">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getFacultiesBancoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="IlvException">
+        <soap:fault name="IlvException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRepresentativeFaculty">
+      <soap:operation soapAction="getRepresentativeFaculty" style="document"/>
+      <wsdl:input name="getRepresentativeFaculty">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRepresentativeFacultyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="IlvException">
+        <soap:fault name="IlvException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IlvService">
+    <wsdl:port name="IlvServicePort" binding="tns:IlvServiceSoapBinding">
+      <soap:address location="http://localhost:8080/fsw-facultad/IlvService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
