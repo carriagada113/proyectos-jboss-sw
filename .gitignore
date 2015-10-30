@@ -44,7 +44,7 @@ Thumbs.db
 # Jboss Developer Studio
 #########################
 *.pydevproject
-.project
+# .project
 .metadata
 bin/**
 tmp/**
@@ -54,7 +54,7 @@ tmp/**/*
 *.swp
 *~.nib
 local.properties
-.classpath
+# .classpath
 .settings/
 .xml/
 .loadpath
