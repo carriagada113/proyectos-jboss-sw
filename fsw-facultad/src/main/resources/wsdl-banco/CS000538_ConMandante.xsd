@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://osb.bancochile.cl/ESB/ConMandante/ConMandanteRequest" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/ESB/ConMandante/ConMandanteRequest">
+  <xsd:complexType name="reqConsultaMandantesType">
+    <xsd:sequence>
+      <xsd:element name="Cuerpo" type="tns:CuerpoType" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CuerpoType">
+    <xsd:sequence>
+      <xsd:element name="idUsuario" type="xsd:string"/>
+      <xsd:element name="proxy" type="tns:proxyType"/>
+      <xsd:element name="numMandantesMostrar" type="xsd:string"/>
+      <xsd:element name="facultad" type="tns:facultadType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="proxyType">
+    <xsd:sequence>
+      <xsd:element name="idDocumento" type="tns:idDocumentoType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="idDocumentoType">
+    <xsd:sequence>
+      <xsd:element name="tipoDocApodrado" type="xsd:string"/>
+      <xsd:element name="numDocApodrado" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="facultadType">
+    <xsd:sequence>
+      <xsd:element name="codFacultad" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</schema>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://osb.bancochile.cl/ESB/ValidaPoder/ApoderadoMultiFResponse" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/ESB/ValidaPoder/ApoderadoMultiFResponse">
+  <xsd:complexType name="respApoderadoMultiFType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="Cuerpo" type="tns:CuerpoType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CuerpoType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="resultadoEjecucion">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="codigoRetorno" type="xsd:unsignedShort"/>
+            <xsd:element minOccurs="0" maxOccurs="1" name="mensajeRetorno" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="1" name="datosRespuesta">
+        <xsd:complexType>
+          <xsd:sequence>
+            <element name="bufferDatosRespuesta" type="tns:bufferDatosRespuestaType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <complexType name="bufferDatosRespuestaType">
+    <sequence>
+      <element name=" fechaUltimaActualizacionIUV" type="string"/>
+      <element name="cantidadRutApoderados" type="unsignedShort"/>
+      <element name="vectorApoderados" type="tns:vectorApoderadosType" maxOccurs="unbounded" minOccurs="0"/>
+    </sequence>
+  </complexType>
+  <complexType name="vectorApoderadosType">
+    <sequence>
+      <element name="rutApoderado" type="string"/>
+      <element name="rankingApoderado" type="unsignedShort"/>
+    </sequence>
+  </complexType>
+</schema>

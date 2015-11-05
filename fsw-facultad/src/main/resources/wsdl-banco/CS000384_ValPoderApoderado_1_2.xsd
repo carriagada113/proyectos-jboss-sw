@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://osb.bancochile.cl/ESB/ValPoderApoderado/OpValPoderApoderadoRequest" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/ESB/ValPoderApoderado/OpValPoderApoderadoRequest">
+  <complexType name="reqValPoderApoderado">
+    <sequence>
+      <element name="Cuerpo" type="tns:CuerpoType"/>
+    </sequence>
+  </complexType>
+  <complexType name="CuerpoType">
+    <sequence>
+      <element name="rutUsuario" minOccurs="1" maxOccurs="1" nillable="false">
+        <xsd:simpleType>
+          <restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="10"/>
+          </restriction>
+        </xsd:simpleType>
+      </element>
+      <element name="oficinaOrigen" minOccurs="1" maxOccurs="1" nillable="false">
+        <xsd:simpleType>
+          <restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="3"/>
+          </restriction>
+        </xsd:simpleType>
+      </element>
+      <element name="rutCliente" minOccurs="1" maxOccurs="1" nillable="false">
+        <xsd:simpleType>
+          <restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="10"/>
+          </restriction>
+        </xsd:simpleType>
+      </element>
+      <element name="cuentaCorriente" minOccurs="1" maxOccurs="1" nillable="false">
+        <xsd:simpleType>
+          <restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="17"/>
+          </restriction>
+        </xsd:simpleType>
+      </element>
+      <element name="tipoMoneda" minOccurs="1" maxOccurs="1" nillable="false">
+        <xsd:simpleType>
+          <restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="3"/>
+          </restriction>
+        </xsd:simpleType>
+      </element>
+      <element name="monto" minOccurs="1" maxOccurs="1" nillable="false">
+        <xsd:simpleType>
+          <restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="18"/>
+          </restriction>
+        </xsd:simpleType>
+      </element>
+      <element name="tipoSolicitud" minOccurs="1" maxOccurs="1" nillable="false">
+        <xsd:simpleType>
+          <restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="2"/>
+          </restriction>
+        </xsd:simpleType>
+      </element>
+      <element name="numeroApoderados" minOccurs="1" maxOccurs="1" nillable="false">
+        <xsd:simpleType>
+          <restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="4"/>
+          </restriction>
+        </xsd:simpleType>
+      </element>
+      <element name="apoderados" type="tns:apoderadosType"/>
+    </sequence>
+  </complexType>
+  <complexType name="apoderadosType">
+    <sequence>
+      <element name="apoderado" type="tns:apoderadoType" minOccurs="1" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <complexType name="apoderadoType">
+    <sequence>
+      <element name="rutApoderado" minOccurs="1" maxOccurs="1" nillable="false">
+        <xsd:simpleType>
+          <restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="10"/>
+          </restriction>
+        </xsd:simpleType>
+      </element>
+    </sequence>
+  </complexType>
+</xsd:schema>

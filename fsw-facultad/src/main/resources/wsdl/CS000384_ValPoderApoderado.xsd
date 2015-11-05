@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://osb.bancochile.cl/common/HeaderResponse" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/common/HeaderResponse">
+  <complexType name="datosTransaccion">
+    <sequence>
+      <element name="internalCode" type="xsd:string"/>
+      <element name="idTransaccionNegocio" type="xsd:string"/>
+      <element name="fechaHoraInicioTrx" nillable="true" type="xsd:dateTime"/>
+      <element name="fechaHoraFinTrx" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+  </complexType>
+  <complexType name="datosHeaderResponse">
+    <sequence>
+      <element name="transaccion" type="tns:datosTransaccion"/>
+    </sequence>
+  </complexType>
+</schema>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://osb.bancochile.cl/ESB/ValidaPoder/ValidaPoderRequest" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/ESB/ValidaPoder/ValidaPoderRequest">
+  <xsd:complexType name="reqValidaPoderType">
+    <xsd:sequence>
+      <xsd:element name="Cuerpo" type="tns:CuerpoType" maxOccurs="1" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CuerpoType">
+    <xsd:sequence>
+      <xsd:element name="idUsuario" type="xsd:string"/>
+      <xsd:element name="datos" type="tns:datosType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="datosType">
+    <xsd:sequence>
+      <xsd:element name="oficinaOrigen" type="unsignedShort"/>
+      <xsd:element name="rutCliente" type="string"/>
+      <xsd:element name="listaFacultades" type="tns:listaFacultadesType" maxOccurs="1" minOccurs="0"/>
+      <xsd:element name="rutApoderado" type="string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="listaFacultadesType">
+    <xsd:sequence>
+      <xsd:element name="Facultades" type="tns:FacultadesType" maxOccurs="unbounded" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <complexType name="FacultadesType">
+    <sequence>
+      <element name="facultad" type="unsignedShort"/>
+    </sequence>
+  </complexType>
+</schema>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://osb.bancochile.cl/ESB/ValidaPoder/ApoderadoMultiFRequest" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/ESB/ValidaPoder/ApoderadoMultiFRequest">
+  <xsd:complexType name="reqApoderadoMultiFType">
+    <xsd:sequence>
+      <xsd:element name="Cuerpo" type="tns:CuerpoType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CuerpoType">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="idUsuario" type="xsd:string"/>
+      <element name="datos" type="tns:datosType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <complexType name="datosType">
+    <sequence>
+      <element name="oficinaOrigen" type="unsignedShort"/>
+      <element name="rutCliente" type="string"/>
+      <element name="cuentaCorriente" type="string"/>
+      <element name="fechaCheque" type="dateTime"/>
+      <element name="listaFacultades" type="tns:listaFacultadesType" maxOccurs="1" minOccurs="0"/>
+    </sequence>
+  </complexType>
+  <complexType name="listaFacultadesType">
+    <sequence>
+      <element name="facultades" type="tns:facultadesType" maxOccurs="unbounded" minOccurs="0"/>
+    </sequence>
+  </complexType>
+  <element name="NewElement" type="string"/>
+  <complexType name="facultadesType">
+    <sequence>
+      <element name="facultad" type="unsignedShort"/>
+    </sequence>
+  </complexType>
+</schema>

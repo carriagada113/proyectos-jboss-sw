@@ -6,6 +6,9 @@
       <sca:service name="IlvService">
         <sca:interface.java interface="cl.banchile.ilv.fsw.facultad.service.IlvService"/>
       </sca:service>
+      <sca:reference name="CS000203_ApoderadoFacultadGiro">
+        <sca:interface.java interface="cl.banchile.ilv.fsw.facultad.service.ext.CS000203_ApoderadoFacultadGiro"/>
+      </sca:reference>
     </sca:component>
     <sca:service name="IlvServicePortType" promote="IlvServiceBean/IlvService">
       <sca:interface.wsdl interface="wsdl/IlvService.wsdl#wsdl.porttype(IlvServicePortType)"/>
@@ -14,5 +17,21 @@
       </soap:binding.soap>
     </sca:service>
   </sca:composite>
-  <sy:transforms/>
+  <sy:transforms>
+    <transform:transform.jaxb from="java:cl.banchile.ilv.fsw.facultad.to.output.BanchileFacultyOutSrv" to="{urn:cl.banchile.ilv:fsw-facultad:1.0}banchileFacultyOutSrv"/>
+    <transform:transform.jaxb from="java:cl.banchile.ilv.fsw.facultad.to.output.BancoFacultyOutSrv" to="{urn:cl.banchile.ilv:fsw-facultad:1.0}bancoFacultyOutSrv"/>
+    <transform:transform.jaxb from="java:cl.banchile.ilv.fsw.facultad.to.output.RepresentativeFacultyOutSrv" to="{urn:cl.banchile.ilv:fsw-facultad:1.0}representativeFacultyOutSrv"/>
+    <transform:transform.jaxb from="java:cl.banchile.ilv.fsw.facultad.to.output.RuleRepresentativeFacultyOutSrv" to="{urn:cl.banchile.ilv:fsw-facultad:1.0}ruleRepresentativeFacultyOutSrv"/>
+    <transform:transform.jaxb from="java:java.lang.String" to="{urn:cl.banchile.ilv:fsw-facultad:1.0}string"/>
+    <transform:transform.jaxb from="{urn:cl.banchile.ilv:fsw-facultad:1.0}banchileFacultyInSrv" to="java:cl.banchile.ilv.fsw.facultad.to.input.BanchileFacultyInSrv"/>
+    <transform:transform.jaxb from="{urn:cl.banchile.ilv:fsw-facultad:1.0}bancoFacultyInSrv" to="java:cl.banchile.ilv.fsw.facultad.to.input.BancoFacultyInSrv"/>
+    <transform:transform.jaxb from="{urn:cl.banchile.ilv:fsw-facultad:1.0}facultyRepresentativeInSrv" to="java:cl.banchile.ilv.fsw.facultad.to.input.FacultyRepresentativeInSrv"/>
+    <transform:transform.smooks from="java:cl.banchile.ilv.fsw.facultad.exception.IlvException" to="{urn:cl.banchile.ilv:fsw-facultad:1.0}IlvException" type="JAVA2XML" config="transformers/sm-ilv-service-fault.xml"/>
+    <transform:transform.jaxb from="{urn:cl.banchile.ilv:fsw-facultad:1.0}string" to="java:cl.banchile.ilv.fsw.facultad.to.input.RepresentativeFacultyInSrv"/>
+    <transform:transform.jaxb from="{urn:cl.banchile.ilv:fsw-facultad:1.0}string" to="java:cl.banchile.ilv.fsw.facultad.to.input.RuleRepresentativeFacultyInSrv"/>
+    <transform:transform.jaxb from="{urn:cl.banchile.ilv:fsw-facultad:1.0}representativeFacultyInSrv" to="java:cl.banchile.ilv.fsw.facultad.to.input.RepresentativeFacultyInSrv"/>
+    <transform:transform.jaxb from="{urn:cl.banchile.ilv:fsw-facultad:1.0}ruleRepresentativeFacultyInSrv" to="java:cl.banchile.ilv.fsw.facultad.to.input.RuleRepresentativeFacultyInSrv"/>
+    <transform:transform.jaxb from="java:cl.banchile.ilv.fsw.facultad.to.ext.ApoderadoFacultadGiroRequest" to="{http://osb.bancochile.cl/ApoderadoFacultadGiro/}ApoderadoFacultadGiro"/>
+    <transform:transform.jaxb from="{http://osb.bancochile.cl/ApoderadoFacultadGiro/}ApoderadoFacultadGiroResponse" to="java:cl.banchile.ilv.fsw.facultad.to.ext.ApoderadoFacultadGiroResponse"/>
+  </sy:transforms>
 </sy:switchyard>

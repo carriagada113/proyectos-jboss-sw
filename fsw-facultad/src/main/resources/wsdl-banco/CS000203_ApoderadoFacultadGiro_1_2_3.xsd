@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://osb.bancochile.cl/ESB/ApoderadoFacultadGiro/OpApoderadoFacultadGiroRequest" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/ESB/ApoderadoFacultadGiro/OpApoderadoFacultadGiroRequest">
+  <complexType name="reqApoderadoFacultadGiro">
+    <sequence>
+      <element name="oficinaOrigen" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+      <element name="rutCliente" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <element name="cuentaCorriente" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <element name="fechaCheque" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <element name="tipoSolicitud" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+</schema>

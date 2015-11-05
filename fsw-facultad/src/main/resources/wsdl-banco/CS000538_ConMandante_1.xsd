@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://osb.bancochile.cl/ESB/ConMandante/ConMandanteResponse" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/ESB/ConMandante/ConMandanteResponse">
+  <xsd:complexType name="respConsultaMandantesResponseType">
+    <xsd:sequence>
+      <xsd:element name="Cuerpo" type="tns:CuerpoType1" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CuerpoType1">
+    <xsd:sequence>
+      <xsd:element name="respEjecucion" type="tns:respEjecucionType"/>
+      <xsd:element name="proxy" type="tns:proxyType1"/>
+      <xsd:element name="facultad" type="tns:facultadType1"/>
+      <xsd:element name="arregloMandantes" type="tns:arregloMandantesType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="respEjecucionType">
+    <xsd:sequence>
+      <xsd:element name="codigoResultado" type="xsd:string"/>
+      <xsd:element name="descResultado" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="proxyType1">
+    <xsd:sequence>
+      <xsd:element name="idDocumento" type="tns:idDocumentoType1"/>
+      <xsd:element name="nomApodrado" type="xsd:string"/>
+      <xsd:element name="apellidoApodrado" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="idDocumentoType1">
+    <xsd:sequence>
+      <xsd:element name="tipoDocApodrado" type="xsd:string"/>
+      <xsd:element name="numDocApodrado" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="facultadType1">
+    <xsd:sequence>
+      <xsd:element name="codFacultad" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="arregloMandantesType">
+    <xsd:sequence>
+      <xsd:element name="mandante" type="tns:mandanteType" maxOccurs="unbounded" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mandanteType">
+    <xsd:sequence>
+      <xsd:element name="idDocumento" type="tns:idDocumentoType2"/>
+      <xsd:element name="capacidadJuridicaMandante" type="xsd:string"/>
+      <xsd:element name="razonSocialMandante" type="xsd:string"/>
+      <xsd:element name="monFantasiaMandante" type="xsd:string"/>
+      <xsd:element name="limit" type="tns:limitType"/>
+      <xsd:element name="modoReglaFirma" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="idDocumentoType2">
+    <xsd:sequence>
+      <xsd:element name="tipoDocMandante" type="xsd:string"/>
+      <xsd:element name="numDocMandante" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="limitType">
+    <xsd:sequence>
+      <xsd:element name="currency" type="tns:currencyType"/>
+      <xsd:element name="montoLimite" type="xsd:string"/>
+      <xsd:element name="notasLimitacion" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="currencyType">
+    <xsd:sequence>
+      <xsd:element name="tipoMoneda" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</schema>

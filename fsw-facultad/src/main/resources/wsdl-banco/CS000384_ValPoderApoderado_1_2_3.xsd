@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://osb.bancochile.cl/ESB/ValPoderApoderado/OpValPoderApoderadoResponse" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/ESB/ValPoderApoderado/OpValPoderApoderadoResponse">
+  <complexType name="cuerpo">
+    <sequence>
+      <element name="Cuerpo" type="tns:CuerpoResponseType"/>
+    </sequence>
+  </complexType>
+  <complexType name="CuerpoResponseType">
+    <sequence>
+      <element name="codRetorno" minOccurs="1" maxOccurs="1" nillable="false" type="string"/>
+      <element name="mensajeRetorno" type="string" maxOccurs="1" minOccurs="1"/>
+      <element name="codRetornoSRM" minOccurs="1" maxOccurs="1" nillable="false" type="string"/>
+      <element name="estado" minOccurs="1" maxOccurs="1" nillable="false" type="string"/>
+      <element name="respuesta" minOccurs="1" maxOccurs="1" nillable="false" type="string"/>
+      <element name="numeroResultado" minOccurs="1" maxOccurs="1" nillable="false" type="string"/>
+      <element name="mensaje" minOccurs="1" maxOccurs="1" nillable="false" type="string"/>
+    </sequence>
+  </complexType>
+</schema>

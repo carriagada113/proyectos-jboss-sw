@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WL5G3N0:definitions name="ValidaPoder" targetNamespace="http://osb.bancochile.cl/ValidaPoder/" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://osb.bancochile.cl/ValidaPoder/" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <xsd:schema targetNamespace="http://osb.bancochile.cl/ValidaPoder/" xmlns:pref1="http://osb.bancochile.cl/common/HeaderRequest" xmlns:pref2="http://osb.bancochile.cl/common/HeaderResponse" xmlns:pref3="http://osb.bancochile.cl/ESB/ValidaPoder/ValidaPoderRequest" xmlns:pref4="http://osb.bancochile.cl/ESB/ValidaPoder/ValidaPoderResponse" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://osb.bancochile.cl/ValidaPoder/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://osb.bancochile.cl/ESB/ValidaPoder/ValidaPoderRequest" schemaLocation="CS000537_ValidaPoder.xsd"/>
+      <xsd:import namespace="http://osb.bancochile.cl/ESB/ValidaPoder/ValidaPoderResponse" schemaLocation="CS000537_ValidaPoder_1.xsd"/>
+      <xsd:import namespace="http://osb.bancochile.cl/common/HeaderRequest" schemaLocation="CS000537_ValidaPoder_1_2.xsd"/>
+      <xsd:import namespace="http://osb.bancochile.cl/common/HeaderResponse" schemaLocation="CS000537_ValidaPoder_1_2_3.xsd"/>
+      <xsd:element name="headerRequest" type="pref1:datosHeaderRequest"/>
+      <xsd:element name="headerResponse" type="pref2:datosHeaderResponse"/>
+      <xsd:element name="ValidaPoder">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="reqValidaPoder" type="pref3:reqValidaPoderType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidaPoderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="respValidaPoder" type="pref4:respValidaPoderType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="headerRequestMessage">
+    <WL5G3N0:part element="WL5G3N1:headerRequest" name="headerRequest"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="headerResponseMessage">
+    <WL5G3N0:part element="WL5G3N1:headerResponse" name="headerResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="ValidaPoderRequest">
+    <WL5G3N0:part element="WL5G3N1:ValidaPoder" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="ValidaPoderResponse">
+    <WL5G3N0:part element="WL5G3N1:ValidaPoderResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="ValidaPoder">
+    <WL5G3N0:operation name="ValidaPoder">
+      <WL5G3N0:input message="WL5G3N1:ValidaPoderRequest"/>
+      <WL5G3N0:output message="WL5G3N1:ValidaPoderResponse"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="ValidaPoderSOAP" type="WL5G3N1:ValidaPoder">
+    <WL5G3N2:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="ValidaPoder">
+      <WL5G3N2:operation soapAction="http://osb.bancochile.cl/ValidaPoder/ValidaPoder"/>
+      <WL5G3N0:input>
+        <WL5G3N2:header message="WL5G3N1:headerRequestMessage" part="headerRequest" use="literal"/>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:header message="WL5G3N1:headerResponseMessage" part="headerResponse" use="literal"/>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="ValidaPoder">
+    <WL5G3N0:port binding="WL5G3N1:ValidaPoderSOAP" name="ValidaPoderSOAP">
+      <WL5G3N2:address location="http://192.168.10.12:8115/Poderes/CS000537_ValidaPoder"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

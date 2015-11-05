@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WL5G3N0:definitions name="ValPoderApoderado" targetNamespace="http://osb.bancochile.cl/ValPoderApoderado/" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://osb.bancochile.cl/ValPoderApoderado/" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <xsd:schema targetNamespace="http://osb.bancochile.cl/ValPoderApoderado/" xmlns:Q1="http://osb.bancochile.cl/ESB/ValPoderApoderado/OpValPoderApoderadoRequest" xmlns:Q2="http://osb.bancochile.cl/ESB/ValPoderApoderado/OpValPoderApoderadoResponse" xmlns:Q3="http://osb.bancochile.cl/common/HeaderRequest" xmlns:Q4="http://osb.bancochile.cl/common/HeaderResponse" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://osb.bancochile.cl/ValPoderApoderado/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://osb.bancochile.cl/common/HeaderResponse" schemaLocation="CS000384_ValPoderApoderado.xsd"/>
+      <xsd:import namespace="http://osb.bancochile.cl/common/HeaderRequest" schemaLocation="CS000384_ValPoderApoderado_1.xsd"/>
+      <xsd:import namespace="http://osb.bancochile.cl/ESB/ValPoderApoderado/OpValPoderApoderadoRequest" schemaLocation="CS000384_ValPoderApoderado_1_2.xsd"/>
+      <xsd:import namespace="http://osb.bancochile.cl/ESB/ValPoderApoderado/OpValPoderApoderadoResponse" schemaLocation="CS000384_ValPoderApoderado_1_2_3.xsd"/>
+      <xsd:element name="headerRequest" type="Q3:datosHeaderRequest"/>
+      <xsd:element name="headerResponse" type="Q4:datosHeaderResponse"/>
+      <xsd:element name="ValPoderApoderado">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="cuerpo" type="Q1:CuerpoType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValPoderApoderadoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="cuerpo" type="Q2:CuerpoResponseType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="ValPoderApoderadoRequest">
+    <WL5G3N0:part element="WL5G3N1:ValPoderApoderado" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="ValPoderApoderadoResponse">
+    <WL5G3N0:part element="WL5G3N1:ValPoderApoderadoResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="headerRequestMessage">
+    <WL5G3N0:part element="WL5G3N1:headerRequest" name="headerRequest"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="headerResponseMessage">
+    <WL5G3N0:part element="WL5G3N1:headerResponse" name="headerResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="ValPoderApoderado">
+    <WL5G3N0:operation name="ValPoderApoderado">
+      <WL5G3N0:input message="WL5G3N1:ValPoderApoderadoRequest"/>
+      <WL5G3N0:output message="WL5G3N1:ValPoderApoderadoResponse"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="ValPoderApoderadoSOAP" type="WL5G3N1:ValPoderApoderado">
+    <WL5G3N2:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="ValPoderApoderado">
+      <WL5G3N2:operation soapAction="http://osb.bancochile.cl/ValPoderApoderado/ValPoderApoderado"/>
+      <WL5G3N0:input>
+        <WL5G3N2:header message="WL5G3N1:headerRequestMessage" part="headerRequest" use="literal"/>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:header message="WL5G3N1:headerResponseMessage" part="headerResponse" use="literal"/>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="ValPoderApoderado">
+    <WL5G3N0:port binding="WL5G3N1:ValPoderApoderadoSOAP" name="ValPoderApoderadoSOAP">
+      <WL5G3N2:address location="http://192.168.10.12:8117/PX_Apoderados/CS000384_ValPoderApoderado"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

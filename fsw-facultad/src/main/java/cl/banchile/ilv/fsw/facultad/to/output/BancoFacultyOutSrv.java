@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="facultadBancoOutSrv",namespace="urn:cl.banchile.fsw:ilv-ws:1.0")
+@XmlRootElement(name="bancoFacultyOutSrv",namespace="urn:cl.banchile.ilv:fsw-facultad:1.0")
 public class BancoFacultyOutSrv implements Serializable {
 
 	private static final long serialVersionUID = 3097373202585089391L;

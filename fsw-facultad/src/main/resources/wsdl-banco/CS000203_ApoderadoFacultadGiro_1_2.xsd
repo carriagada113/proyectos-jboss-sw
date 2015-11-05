@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://osb.bancochile.cl/ESB/ApoderadoFacultadGiro/OpApoderadoFacultadGiroResponse" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/ESB/ApoderadoFacultadGiro/OpApoderadoFacultadGiroResponse">
+  <complexType name="respApoderadoFacultadGiro">
+    <sequence>
+      <element name="codigoRetornoFuncion" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <element name="mensajeSalida" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <element name="fechaUltimaActIUV" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <element name="cantidadRutApoderados" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <element name="listaApoderados" type="tns:listaApoderadosType" minOccurs="0" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="listaApoderadosType">
+    <sequence>
+      <element name="apoderado" type="tns:apoderadoType" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <complexType name="apoderadoType">
+    <sequence>
+      <element name="rutApoderado" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true"/>
+      <element name="rankingApoderado" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true"/>
+    </sequence>
+  </complexType>
+</schema>

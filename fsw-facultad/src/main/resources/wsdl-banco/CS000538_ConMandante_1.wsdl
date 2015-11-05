@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WL5G3N0:definitions name="ConMandante" targetNamespace="http://osb.bancochile.cl/ConMandante/" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://osb.bancochile.cl/ConMandante/" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <xsd:schema targetNamespace="http://osb.bancochile.cl/ConMandante/" xmlns:pref1="http://osb.bancochile.cl/common/HeaderRequest" xmlns:pref2="http://osb.bancochile.cl/common/HeaderResponse" xmlns:pref3="http://osb.bancochile.cl/ESB/ConMandante/ConMandanteRequest" xmlns:pref4="http://osb.bancochile.cl/ESB/ConMandante/ConMandanteResponse" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://osb.bancochile.cl/ConMandante/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://osb.bancochile.cl/ESB/ConMandante/ConMandanteRequest" schemaLocation="CS000538_ConMandante.xsd"/>
+      <xsd:import namespace="http://osb.bancochile.cl/ESB/ConMandante/ConMandanteResponse" schemaLocation="CS000538_ConMandante_1.xsd"/>
+      <xsd:import namespace="http://osb.bancochile.cl/common/HeaderRequest" schemaLocation="CS000538_ConMandante_1_2.xsd"/>
+      <xsd:import namespace="http://osb.bancochile.cl/common/HeaderResponse" schemaLocation="CS000538_ConMandante_1_2_3.xsd"/>
+      <xsd:element name="headerRequest" type="pref1:datosHeaderRequest"/>
+      <xsd:element name="headerResponse" type="pref2:datosHeaderResponse"/>
+      <xsd:element name="ConsultaMandantes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="reqConsultaMandantes" type="pref3:reqConsultaMandantesType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultaMandantesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="respConsultaMandantesResponse" type="pref4:respConsultaMandantesResponseType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="headerRequestMessage">
+    <WL5G3N0:part element="WL5G3N1:headerRequest" name="headerRequest"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="headerResponseMessage">
+    <WL5G3N0:part element="WL5G3N1:headerResponse" name="headerResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="ConsultaMandantesRequest">
+    <WL5G3N0:part element="WL5G3N1:ConsultaMandantes" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="ConsultaMandantesResponse">
+    <WL5G3N0:part element="WL5G3N1:ConsultaMandantesResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="ConMandante">
+    <WL5G3N0:operation name="ConsultaMandantes">
+      <WL5G3N0:input message="WL5G3N1:ConsultaMandantesRequest"/>
+      <WL5G3N0:output message="WL5G3N1:ConsultaMandantesResponse"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="ConMandanteSOAP" type="WL5G3N1:ConMandante">
+    <WL5G3N2:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="ConsultaMandantes">
+      <WL5G3N2:operation soapAction="http://osb.bancochile.cl/ConMandante/ConsultaMandantes"/>
+      <WL5G3N0:input>
+        <WL5G3N2:header message="WL5G3N1:headerRequestMessage" part="headerRequest" use="literal"/>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:header message="WL5G3N1:headerResponseMessage" part="headerResponse" use="literal"/>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="ConMandante">
+    <WL5G3N0:port binding="WL5G3N1:ConMandanteSOAP" name="ConMandanteSOAP">
+      <WL5G3N2:address location="http://192.168.10.11:8111/PX_Poderes/CS000538_ConMandante"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>
